@@ -1,12 +1,17 @@
 #!/usr/bin/env bash
 
+apt-get install -y git-all
+apt-get install -y golang
 
-#see http://ask.xmodulo.com/install-go-language-linux.html
-yum install golang -y
-yum install nano -y
-mkdir $HOME/workspace
-echo export GOPATH="$HOME/workspace" >> ~/.bashrc
-source ~/.bashrc
-# wget https://storage.googleapis.com/golang/go$VERSION.$OS-$ARCH.tar.gz
-# tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
-# export PATH=$PATH:/usr/local/go/bin
+# files dir is at /vagrant $HOME = /root
+
+
+export GOPATH=/vagrant/workspace
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+go get github.com/gorilla/mux
+go get github.com/gocql/gocql
+
+echo export GOPATH="/vagrant/workspace" >> /home/vagrant/.bashrc
+echo export PATH=$PATH:$GOROOT/bin:$GOPATH/bin >> /home/vagrant/.bashrc
+source /home/vagrant/.bashrc
