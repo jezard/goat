@@ -32,5 +32,6 @@ Vagrant.configure(2) do |config|
 
     config.vm.provision :shell, path: "bootstrap.sh"
     config.vm.synced_folder "~/projects/jps-fe/", "/vagrant/workspace/src/github.com/jezard/jps-fe"
+    config.vm.synced_folder "~/projects/ifixwebsites.co.uk/", "/vagrant/workspace/src/github.com/jezard/ifixwebsites.co.uk"
 
 end
